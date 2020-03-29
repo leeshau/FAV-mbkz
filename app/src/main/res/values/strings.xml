@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">SoLightAre_mobile</string>
+    <string name="title">SoLightAre</string>
+    <string name="new_game">New Game</string>
+    <string name="score">Score</string>
+    <string name="exit">Exit</string>
+    <string name="button_start">Start</string>
+<!--    values for choosing the difficulty -->
+    <string name="difficulty_text">Difficulty (number of columns)</string>
+    <string-array name="diff_array">
+        <item name="diff_easy" type="string">Easy</item>
+        <item name="diff_medium" type="string">Medium</item>
+        <item name="diff_hard" type="string">Hard</item>
+        <item name="diff_you_kidding" type="string">You kidding -_-</item>
+    </string-array>
+    <string-array name="diff_array_values">
+        <item>8</item>
+        <item>6</item>
+        <item>4</item>
+        <item>2</item>
+    </string-array>
+<!--    values for choosing colors-->
+    <string name="colors_text">Colors</string>
+    <string-array name="colors_array">
+        <item name="colors_1" type="string">One</item>
+        <item name="colors_2" type="string">Two</item>
+        <item name="colors_3" type="string">Three</item>
+        <item name="colors_4" type="string">Four</item>
+    </string-array>
+    <string-array name="colors_array_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>
