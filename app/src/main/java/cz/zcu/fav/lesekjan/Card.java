@@ -1,35 +1,39 @@
 package cz.zcu.fav.lesekjan;
 
-import android.graphics.Rect;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.Button;
 
-public class Card {
+import androidx.appcompat.widget.AppCompatButton;
 
-    Rect cardBT;
+public class Card extends AppCompatButton {
     private CardType ct;
     private CardColor cc;
-    //upper-left corner
-    int x, y;
+    //array of cards[][] position, i == y axis, j == x axis
+    int i, j;
 
-    static int width = 100;
-    static int height = 120;
-    static int offset = 5;
+    static int width = 120;
+    static int height = 150;
+//    static int offset = 15;
 
 
     /**
-     * simple constructor
+     * main constructor
      * @param ct card type
      * @param cc card color
      */
-    public Card(CardType ct, CardColor cc, int x, int y) {
-        cardBT = new Rect(x, y, x + width, y + height);
+    public Card(Context context, CardType ct, CardColor cc, int i, int j) {
+        super(context);
         this.ct = ct;
         this.cc = cc;
+        this.i = i;
+        this.j = j;
     }
     /**
      * simpler constructor to make an empty card
      */
-    public Card() {
-        this(CardType.NONE, CardColor.NONE, 0, 0);
+    public Card(Context context, int i, int j) {
+        this(context, CardType.NONE, CardColor.NONE, i, j);
     }
     /**
      * method that makes the card empty, just for convenience this method exists
@@ -49,6 +53,12 @@ public class Card {
             case Q: return CardType.J;
             default: return CardType.NONE;
         }
+    }
+
+    /**
+     * Card c should be above this card*/
+    public boolean isBellow(Card c){
+        return (c.i == (this.i - 1) && c.j == this.j);
     }
 
 
@@ -71,6 +81,6 @@ public class Card {
      */
     @Override
     public String toString() {
-        return ""+ this.getCt() +", "+this.getCc()+", x: "+this.x+", y: "+this.y;
+        return ""+ this.getCt() +", "+this.getCc()+", x: "+this.i+", y: "+this.j;
     }
 }
