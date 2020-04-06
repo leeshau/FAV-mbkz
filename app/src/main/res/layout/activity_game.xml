@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <!--suppress CheckTagEmptyBody -->
     <GridLayout
         android:id="@+id/cardgrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,17 +20,23 @@
         app:layout_constraintVertical_bias="0.26999998"></GridLayout>
 
     <LinearLayout
-        android:layout_width="88dp"
+        android:id="@+id/freecard_left"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
-        <Card
-            android:id="@+id/freecard_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Card>
-    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/freecard_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
