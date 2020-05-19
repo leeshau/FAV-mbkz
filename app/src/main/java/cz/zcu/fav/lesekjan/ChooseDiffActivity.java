@@ -28,5 +28,6 @@ public class ChooseDiffActivity extends AppCompatActivity {
         System.out.println("Colors: " + GameActivity.colors);
 
         startActivity(new Intent(this, GameActivity.class));
+        finish();
     }
 }

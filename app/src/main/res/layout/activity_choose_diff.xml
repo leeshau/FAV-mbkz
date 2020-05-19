@@ -10,7 +10,7 @@
         android:id="@+id/spinner_diff"
         android:layout_width="159dp"
         android:layout_height="48dp"
-        android:layout_marginStart="116dp"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="112dp"
         android:entries="@array/diff_array"
         android:spinnerMode="dropdown"
@@ -21,11 +21,13 @@
         android:id="@+id/button_start"
         android:layout_width="141dp"
         android:layout_height="63dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="312dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="300dp"
         android:onClick="begin_act"
         android:text="@string/button_start"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
@@ -33,18 +35,18 @@
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="112dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginEnd="112dp"
         android:entries="@array/colors_array"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_diff"
-        android:layout_width="161dp"
-        android:layout_height="36dp"
+        android:layout_width="204dp"
+        android:layout_height="25dp"
         android:text="@string/difficulty_text"
         app:layout_constraintBottom_toTopOf="@+id/spinner_diff"
-        tools:layout_editor_absoluteX="116dp" />
+        tools:layout_editor_absoluteX="92dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -52,5 +54,5 @@
         android:layout_height="wrap_content"
         android:text="@string/colors_text"
         app:layout_constraintBottom_toTopOf="@+id/spinner_colors"
-        tools:layout_editor_absoluteX="419dp" />
+        tools:layout_editor_absoluteX="517dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

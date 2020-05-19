@@ -33,4 +33,13 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <string name="packed_count_string">Packed count </string>
+    <string name="time_string">Time </string>
+    <string name="pack_it_up">Pack\n it\n up!</string>
+    <string name="give_a_set">Give\n a\n set!</string>
+    <string name="finish">Finish!</string>
+    <string name="highscore">High scores</string>
+    <string name="void_score_name">None yet</string>
+    <string name="void_score_score">score</string>
+    <string name="text_align_score">center</string>
 </resources>
