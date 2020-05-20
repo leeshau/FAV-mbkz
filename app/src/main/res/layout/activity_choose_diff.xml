@@ -44,15 +44,17 @@
         android:id="@+id/text_diff"
         android:layout_width="204dp"
         android:layout_height="25dp"
+        android:layout_marginStart="92dp"
         android:text="@string/difficulty_text"
         app:layout_constraintBottom_toTopOf="@+id/spinner_diff"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="172dp"
         android:text="@string/colors_text"
         app:layout_constraintBottom_toTopOf="@+id/spinner_colors"
-        tools:layout_editor_absoluteX="517dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

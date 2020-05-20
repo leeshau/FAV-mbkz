@@ -20,13 +20,9 @@ public class ChooseDiffActivity extends AppCompatActivity {
         String[] diff_arr = getResources().getStringArray(R.array.diff_array_values);
         int diff_position = ((Spinner)(findViewById(R.id.spinner_diff)) ).getSelectedItemPosition();
         /*int diff*/ GameActivity.diff = Integer.valueOf(diff_arr[diff_position]);
-        System.out.println("Diff, number of columns: " + GameActivity.diff);
-
         String[] colors_arr = getResources().getStringArray(R.array.colors_array_values);
         int colors_position = ((Spinner) (findViewById(R.id.spinner_colors)) ).getSelectedItemPosition();
         /*int colors*/ GameActivity.colors = Integer.valueOf(colors_arr[colors_position]);
-        System.out.println("Colors: " + GameActivity.colors);
-
         startActivity(new Intent(this, GameActivity.class));
         finish();
     }

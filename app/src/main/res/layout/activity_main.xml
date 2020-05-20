@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/delete_scores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="52dp"
+        android:onClick="delete_scores"
+        android:text="@string/delete_scores"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="119dp"
@@ -48,22 +60,22 @@
         android:id="@+id/scores_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
+        android:layout_marginStart="164dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/highscore"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/highscore" />
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="322dp"
-        android:layout_height="227dp"
+        android:layout_width="364dp"
+        android:layout_height="103dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="120dp"
+        android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:stretchColumns="*">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -74,15 +86,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_name"
-                android:textAlignment="center"
-            />
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/p1_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_score"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
@@ -94,15 +105,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_name"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/p2_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_score"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
@@ -114,15 +124,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_name"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/p3_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_score"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
         </TableRow>
 
 
@@ -135,15 +144,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_name"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/p4_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_score"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
         </TableRow>
 
 
@@ -156,16 +164,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_name"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/p5_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/void_score_score"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
         </TableRow>
+
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,4 +42,11 @@
     <string name="void_score_name">None yet</string>
     <string name="void_score_score">score</string>
     <string name="text_align_score">center</string>
+    <string name="delete_scores">Delete scores</string>
+    <string name="dialog_finish1">You scored</string>
+    <string name="dialog_finish2">points! Please enter your name.</string>
+    <string name="dialog_confirm">Ok</string>
+    <string name="dialog_decline">Cancel</string>
+    <string name="default_score_name">Score name</string>
+    <string name="game_finished">Game finished!</string>
 </resources>
