@@ -1,15 +1,11 @@
 package cz.zcu.fav.lesekjan;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,24 +14,11 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static java.security.AccessController.getContext;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -77,6 +60,7 @@ public class GameActivity extends AppCompatActivity {
         }, 0, 1000);
     }
 
+    /**create all the cards, layout etc*/
     private void createStuff(){
         cards = new Card[ROWS][diff];
         GridLayout grid = findViewById(R.id.cardgrid);
@@ -96,12 +80,12 @@ public class GameActivity extends AppCompatActivity {
         right.addView(initCard(new Card(this, FREECARD_ID, FREECARD_ID)));
 
         //creating pack it up card
-        findViewById(R.id.pack_it_up_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                packItUp();
-            }
-        });
+//        findViewById(R.id.pack_it_up_btn).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                packItUp();
+//            }
+//        });
 
         //creating give a set card
         findViewById(R.id.give_a_set_btn).setOnClickListener(new View.OnClickListener() {
@@ -138,6 +122,7 @@ public class GameActivity extends AppCompatActivity {
         return c;
     }
 
+    /**give functionality to a card, be able to click, move, highlight while checking if you can*/
     private void setOnClick(final Card card) {
         card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,6 +147,7 @@ public class GameActivity extends AppCompatActivity {
                             clickedCard.setShadowLayer(0,0,0,0);
                             PclickedCard.setShadowLayer(0,0,0,0);
                             clickedCard = null;
+                            packItUp();
                         }
                     }
                 }
@@ -200,9 +186,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 empty_pos[j] = i;
             }
-//            if(empty_pos[j] == -1){
-//                return;
-//            }
             c = cards[empty_pos[j]][j]; //highest NONE type card
             Card.setCard(c);
             c.setText(c.getSymbol());
@@ -256,7 +239,6 @@ public class GameActivity extends AppCompatActivity {
             return;
         }
         int i;
-        Toast.makeText(this, "Time is " + this.time, Toast.LENGTH_LONG).show();
         SharedPreferences sp = getSharedPreferences("score_prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         LinkedList<Score> scores = Score.getScores(sp);
@@ -282,10 +264,16 @@ public class GameActivity extends AppCompatActivity {
         finish();
     }
 
+    /**dialog created after hitting the finish! button. Input name and submit or cancel.
+     * counts the final score*/
     private void createDialog() {
-        Log.i("total score", "" + GameActivity.colors + " * " + packedCount + " / (" + ROWS + " * " + time + " / 60)  * 1000");
-        this.total_score = (int) ((float)(GameActivity.colors * packedCount) * 1000 / (float)(ROWS * time / 60)) ;
-        Log.i("score", ""+this.total_score);
+        double temp_score = Math.pow(GameActivity.colors, 2) * packedCount * 600 / (double)ROWS / time;
+        this.total_score = (int)temp_score;
+        if(this.total_score == 0){
+            Toast.makeText(this, "You didn't do anything. Nothing to save here...", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
         final EditText input = new EditText(this);
         input.setText(getResources().getString(R.string.default_score_name));
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -306,8 +294,6 @@ public class GameActivity extends AppCompatActivity {
                 });
         builder.show();
     }
-
-
 }
 
 

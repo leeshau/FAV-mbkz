@@ -2,11 +2,15 @@ package cz.zcu.fav.lesekjan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     void load_score(){
         LinkedList<Score> scores = Score.getScores(getSharedPreferences("score_prefs", MODE_PRIVATE));
-        Log.i("scores size", "" + scores.size());
-        for(Score s: scores)
-            Log.i("score", s.toString());
         if (scores.size() < 1) return;
         ((TextView) findViewById(R.id.p1_name)).setText(scores.get(0).name);
         ((TextView) findViewById(R.id.p1_score)).setText("" + scores.get(0).score);
@@ -58,8 +59,23 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.p5_score)).setText("" + scores.get(4).score);
     }
 
-    public void delete_scores(View v){
-        Log.i("delete", "deleting scores");
+    public void delete_scores_button_press(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getResources().getString(R.string.dialog_delete))
+                .setPositiveButton(R.string.dialog_confirm, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        delete_scores();
+                    }
+                })
+                .setNegativeButton(R.string.dialog_decline, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //empty
+                    }
+                });
+        builder.show();
+    }
+
+    public void delete_scores(){
         getSharedPreferences("score_prefs", MODE_PRIVATE).edit().clear().apply();
         ((TextView) findViewById(R.id.p1_name)).setText(getResources().getText(R.string.void_score_name));
         ((TextView) findViewById(R.id.p1_score)).setText(getResources().getText(R.string.void_score_score));

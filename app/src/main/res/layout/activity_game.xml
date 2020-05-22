@@ -63,12 +63,6 @@
             android:text="@string/packed_count_string"/>
 
         <Button
-            android:id="@+id/pack_it_up_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pack_it_up"/>
-
-        <Button
             android:id="@+id/give_a_set_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

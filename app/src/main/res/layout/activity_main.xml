@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginTop="52dp"
-        android:onClick="delete_scores"
+        android:onClick="delete_scores_button_press"
         android:text="@string/delete_scores"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
