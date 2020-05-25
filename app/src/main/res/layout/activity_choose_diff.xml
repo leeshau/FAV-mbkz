@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ChooseDiffActivity">
 
     <Spinner
@@ -15,7 +16,9 @@
         android:entries="@array/diff_array"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"
+        android:background="@color/grayBg"/>
 
     <Button
         android:id="@+id/button_start"
@@ -28,7 +31,7 @@
         android:text="@string/button_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Spinner
         android:id="@+id/spinner_colors"
@@ -38,7 +41,9 @@
         android:layout_marginEnd="112dp"
         android:entries="@array/colors_array"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"
+        android:background="@color/grayBg"/>
 
     <TextView
         android:id="@+id/text_diff"
@@ -47,7 +52,8 @@
         android:layout_marginStart="92dp"
         android:text="@string/difficulty_text"
         app:layout_constraintBottom_toTopOf="@+id/spinner_diff"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/lightText"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -56,5 +62,6 @@
         android:layout_marginEnd="172dp"
         android:text="@string/colors_text"
         app:layout_constraintBottom_toTopOf="@+id/spinner_colors"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#E8FFFFFF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

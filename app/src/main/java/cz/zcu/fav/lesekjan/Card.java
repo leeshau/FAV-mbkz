@@ -114,6 +114,7 @@ public class Card extends AppCompatButton {
             case 1: c.setCt(CardType.Q); break;
             default: c.setCt(CardType.J);
         }
+        num = r.nextInt(4);
         switch(num % GameActivity.colors) {
             case 3: c.setCc(CardColor.HEART); break;
             case 2: c.setCc(CardColor.CLUB); break;

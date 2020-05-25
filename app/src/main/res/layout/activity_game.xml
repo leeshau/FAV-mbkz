@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
     tools:context=".GameActivity">
 
 
@@ -54,13 +55,15 @@
             android:id="@+id/timer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/time_string"/>
+            android:text="@string/time_string"
+            android:textColor="#E8FFFFFF"/>
 
         <TextView
             android:id="@+id/packed_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/packed_count_string"/>
+            android:text="@string/packed_count_string"
+            android:textColor="#E8FFFFFF"/>
 
         <Button
             android:id="@+id/give_a_set_btn"

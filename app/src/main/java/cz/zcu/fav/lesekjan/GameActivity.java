@@ -108,7 +108,7 @@ public class GameActivity extends AppCompatActivity {
     /** from createStuff()
      * sets card to appear as it should be*/
     private Card initCard(Card c) {
-        if(c.i != ROWS - 1){
+        if(c.i != ROWS - 1 && (c.i != FREECARD_ID && c.j != FREECARD_ID)){
             Card.setCard(c);
         }
         setOnClick(c); //sets function
@@ -194,6 +194,7 @@ public class GameActivity extends AppCompatActivity {
             clickedCard.setShadowLayer(0, 0, 0, 0);
             clickedCard = null;
         }
+        packItUp();
     }
 
     /**checks if any column is sorted right and can be packed up, if so, then it packs it up*/
@@ -267,7 +268,7 @@ public class GameActivity extends AppCompatActivity {
     /**dialog created after hitting the finish! button. Input name and submit or cancel.
      * counts the final score*/
     private void createDialog() {
-        double temp_score = Math.pow(GameActivity.colors, 2) * packedCount * 600 / (double)ROWS / time;
+        double temp_score = Math.pow(GameActivity.colors, 2) * packedCount * 600 * 2 / (double)ROWS / time;
         this.total_score = (int)temp_score;
         if(this.total_score == 0){
             Toast.makeText(this, "You didn't do anything. Nothing to save here...", Toast.LENGTH_LONG).show();

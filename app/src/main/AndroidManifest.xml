@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        <service android:enabled="true" android:name=".SoundService" />
         <activity android:name=".ChooseDiffActivity" android:screenOrientation="landscape"></activity>
         <activity android:name=".GameActivity" android:screenOrientation="landscape"/>
         <activity
@@ -21,6 +22,6 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
 </manifest>

@@ -5,35 +5,41 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.InputType;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         load_score();
         GameActivity.main_activity = this;
+        mp = MediaPlayer.create(MainActivity.this, R.raw.dreamy_synth);
+        mp.setLooping(true);
+        mp.start();
+        init_mute_play_btn();
+    }
+
+    private void init_mute_play_btn() {
+        findViewById(R.id.mute_play_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                change_music_play();
+            }
+        });
+    }
+
+    private void change_music_play(){
+        if(mp.isPlaying()){
+            mp.pause();
+        } else {
+            mp.start();
+        }
     }
 
     public void new_game_act(View v){
